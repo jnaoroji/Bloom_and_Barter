@@ -1,22 +1,25 @@
-<div class="row">
-  <div class="col-md-6">
-    <h2>Login</h2>
+<div class="flex h-full">
+  <div class="w-1/2 p-12">
+    <h2 class="text-xl mb-6 font-bold">Log in</h2>
 
-    <form class="form login-form">
-      <div class="form-group">
-        <label for="email-login">email:</label>
-        <input class="form-input" type="text" id="email-login" />
+    <form class="w-full">
+      <div class="mb-3">
+        <label class="block p-0 font-semibold text-sm mb-1" for="email-login">Email</label>
+        <input class="text-sm p-2 pl-3 rounded-lg w-full border border-gray-300 focus:outline-emerald-600" type="text" id="email-login" placeholder="example@gmail.com" />
       </div>
-      <div class="form-group">
-        <label for="password-login">password:</label>
-        <input class="form-input" type="password" id="password-login" />
+      <div class="mb-3">
+        <label class="block p-0 font-semibold text-sm mb-1" for="password-login">Password</label>
+        <input class="text-sm p-2 pl-3 rounded-lg w-full border border-gray-300 focus:outline-emerald-600" type="password" id="password-login" placeholder="Password" />
       </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">login</button>
+      <div class="mt-6">
+        <button class="bg-emerald-200 font-semibold w-full p-2 pl-6 pr-6 rounded-lg shadow-lg" type="submit">Login</button>
       </div>
     </form>
   </div>
-  <div class="col-md-6">
+  <div class="w-1/2 bg-[url('/images/login-splash.jpg')] bg-cover bg-no-repeat">
+    {{!-- <img src="/images/login-splash.jpg" /> --}}
+  </div>
+  {{!-- <div class="col-md-6">
     <h2>Signup</h2>
 
     <form class="form signup-form">
@@ -36,7 +39,7 @@
         <button class="btn btn-primary" type="submit">signup</button>
       </div>
     </form>
-  </div>
+  </div> --}}
 </div>
 
 <script src="./js/login.js"></script>
