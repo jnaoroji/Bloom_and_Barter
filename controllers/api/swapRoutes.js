@@ -1,15 +1,15 @@
 const router = require('express').Router();
-const { Project } = require('../../models');
+const { Swap } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
   try {
-    const newProject = await Project.create({
+    const newSwap = await Swap.create({
       ...req.body,
       user_id: req.session.user_id,
     });
 
-    res.status(200).json(newProject);
+    res.status(200).json(newSwap);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -17,19 +17,19 @@ router.post('/', withAuth, async (req, res) => {
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const projectData = await Project.destroy({
+    const swapData = await Swap.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
 
-    if (!projectData) {
-      res.status(404).json({ message: 'No project found with this id!' });
+    if (!swapData) {
+      res.status(404).json({ message: 'No Plant found with this id!' });
       return;
     }
 
-    res.status(200).json(projectData);
+    res.status(200).json(swapData);
   } catch (err) {
     res.status(500).json(err);
   }
