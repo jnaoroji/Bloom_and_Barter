@@ -1,3 +1,4 @@
-DROP DATABASE IF EXISTS swapProject_db;
+DROP DATABASE IF EXISTS swapPlants_db;
 
-CREATE DATABASE swapProject_db;
+CREATE DATABASE swapPlants_db;
+
