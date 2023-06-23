@@ -1,3 +1,86 @@
+# ---TITLE OF THE GROUP PROJECT HERE---
+## 15th Challenge: Project 2 - Interactive Full-Stack Application
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) 
+
+## Description
+- to edit
+
+## Table of Contents
+- [---TITLE OF THE GROUP PROJECT HERE---](#---title-of-the-group-project-here---)
+  - [15th Challenge: Project 2 - Interactive Full-Stack Application](#15th-challenge-project-2---interactive-full-stack-application)
+  - [Description](#description)
+  - [Table of Contents](#table-of-contents)
+  - [User Story](#user-story)
+  - [Acceptance Criteria](#acceptance-criteria)
+  - [Technologies Used](#technologies-used)
+  - [Installation](#installation)
+  - [Usage and Screenshots](#usage-and-screenshots)
+  - [Links](#links)
+  - [Contributions](#contributions)
+  - [License](#license)
+  - [Questions](#questions)
+  - [References](#references)
+  - [Authors](#authors)
+- [Module 14 Mini-Project: Crowdfunding App](#module-14-mini-project-crowdfunding-app)
+  - [User Stories](#user-stories)
+    - [Acceptance Criteria](#acceptance-criteria-1)
+  - [Specifications](#specifications)
+  - [💡 Hints](#-hints)
+  - [🏆 Bonus](#-bonus)
+
+## User Story
+- to edit
+  
+## Acceptance Criteria
+- to edit
+  
+## Technologies Used
+* HTML
+* CSS
+* Javascript
+* Node.js
+* MySQL
+* Insomnia
+* Dotenv
+* ----add more
+
+## Installation
+- to edit
+
+## Usage and Screenshots
+- to edit
+  
+## Links
+- Github Repository: - to edit
+- Heroku Deployment: - to edit
+
+## Contributions
+- Contributions to this project won't be accepted as this is the reflection of the author's work hence the following questions and answers. Furthermore, forking or creating a pull request is acceptable.
+  
+## License
+- This project is under [MIT](https://choosealicense.com/licenses/mit/) license.
+
+## Questions
+- For more questions or inquiries, please contact the authors at Github.
+
+## References
+- [Node.js](https://nodejs.org/en) 
+- [MySQL](https://www.mysql.com/)
+- [MySQL2](https://www.npmjs.com/package/mysql2)
+- [Sequelize](https://sequelize.org/)
+- [Dotenv](https://www.npmjs.com/package/dotenv)
+- ----add more here
+
+## Authors
+- © 2023 [Jenny](https://github.com/jnaoroji), [Kristine](https://github.com/mcramileux), and Natasa (https://github.com/Natasa00)
+
+--------
+
+
+
+
+
+
 # Module 14 Mini-Project: Crowdfunding App
 
 In this mini-project, you will work with a group to build a full-stack crowdfunding app using Node.js, Express.js, Sequelize, Handlebars.js, and MVC architecture.
