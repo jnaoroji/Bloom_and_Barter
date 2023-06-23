@@ -1,9 +1,10 @@
-<div class="p-20">
+<div class="md:p-20 p-12 pt-12">
+  <h1 class="text-4xl font-semibold mb-12">Find your favorite plants!</h1>
   {{#each swaps as |swap| }}
   <div class="row mb-4 border-b-2 border-neutral-400 pb-6">
     <div class="col-md-5">
       <h2>
-        <a class="text-xl font-semibold block mb-2" href="/project/{{swap.id}}">{{swap.title}}</a>
+        <a class="text-xl font-semibold block mb-2" href="/swap/{{swap.id}}">{{swap.title}}</a>
       </h2>
       <p class="mb-3">
         {{swap.description}}  

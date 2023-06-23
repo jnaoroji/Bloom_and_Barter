@@ -1,0 +1,25 @@
+<div class="p-20 pt-12">
+  <div class="mb-2">
+    {{#if_equals swap.type "Swap"}}
+    <span class="text-xs block rounded-full bg-emerald-100 py-1 px-3 w-min ">
+      Swap
+    </span>
+    {{/if_equals}}
+    {{#if_equals swap.type "Wanted"}}
+    <span class="text-xs block rounded-full bg-blue-100 py-1 px-3 w-min ">
+      Wanted
+    </span>
+    {{/if_equals}}
+    {{#if_equals swap.type "Free"}}
+    <span class="text-xs block rounded-full bg-orange-100 py-1 px-3 w-min ">
+      Free
+    </span>
+    {{/if_equals}}
+  </div>
+  <h1 class="text-4xl font-semibold mb-6">{{swap.title}}</h1>
+  <div class="mb-3">
+    <div class="text-xs font-semibold">{{swap.user.name}}</div>
+    <div class="text-xs font-semibold">{{format_date swap.date_created}}</div>
+  </div>
+  <p class="mb-3">{{swap.description}}</p>
+</div>
