@@ -1,24 +1,32 @@
-<!-- Loop over each object in the projects array -->
-{{#each projects as |project| }}
-<div class="row mb-4 project">
-  <div class="col-md-5">
-    <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_emoji}}}
-      <a href="/project/{{project.id}}">{{project.name}}</a>
-    </h2>
-    <p>
-      <span for="img" aria-label="money">💲</span>
-      <!-- Pass needed_funding value to the helper function -->
-      <span class="dollar-amount">{{format_amount project.needed_funding}}</span>
-      needed!
-    </p>
-    <p>Created by {{project.user.name}} on {{format_date project.date_created}}</p>
+<div class="p-20">
+  {{#each swaps as |swap| }}
+  <div class="row mb-4 border-b-2 border-neutral-400 pb-6">
+    <div class="col-md-5">
+      <h2>
+        <a class="text-xl font-semibold block mb-2" href="/project/{{swap.id}}">{{swap.title}}</a>
+      </h2>
+      <p class="mb-3">
+        {{swap.description}}  
+      </p>
+    </div>
+    <div class="col-md-7">
+      {{#if_equals swap.type "Swap"}}
+      <span class="text-xs block rounded-full bg-emerald-100 py-1 px-3 w-min ">
+        {{swap.type}}
+      </span>
+      {{/if_equals}}
+      {{#if_equals swap.type "Wanted"}}
+      <span class="text-xs block rounded-full bg-blue-100 py-1 px-3 w-min ">
+        {{swap.type}}
+      </span>
+      {{/if_equals}}
+      {{#if_equals swap.type "Free"}}
+      <span class="text-xs block rounded-full bg-orange-100 py-1 px-3 w-min ">
+        {{swap.type}}
+      </span>
+      {{/if_equals}}
+    </div>
   </div>
-  <div class="col-md-7">
-    <p>
-      {{project.description}}
-    </p>
-  </div>
+  {{/each}}
 </div>
-{{/each}}
+

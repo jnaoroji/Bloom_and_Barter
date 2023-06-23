@@ -17,10 +17,44 @@ router.get('/', async (req, res) => {
     // Serialize data so the template can read it
     const swaps = swapData.map((swap) => swap.get({ plain: true }));
 
+    const mockSwaps = [
+      {
+        id: 1,
+        title: 'Strawberry Seedlings',
+        description:
+          'Many stawberry seedlings to swap, will swap for other berries or fruit',
+        type: 'Swap',
+        date_created: '2023-02-03T15:05:00.234Z',
+      },
+      {
+        id: 2,
+        title: 'Seed Potatoes',
+        description: 'Looking for seed potatoes for my garden',
+        type: 'Wanted',
+        date_created: '2023-02-13T15:05:00.234Z',
+      },
+      {
+        id: 3,
+        title: 'Sweet potato runners',
+        description:
+          'I have too many sweet potato runners, Located in Brisbane CBD for pickup. First in best dressed!',
+        type: 'Free',
+        date_created: '2023-02-24T15:05:00.234Z',
+      },
+      {
+        id: 4,
+        title: 'Monstera Variegata cuttings',
+        description:
+          'I have 10 cuttings of Monstera Variegata. Happy for swapping offers with other variegated types!',
+        type: 'Swap',
+        date_created: '2023-01-15T10:05:00.234Z',
+      },
+    ];
+
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      swaps, 
-      logged_in: req.session.logged_in 
+    res.render('homepage', {
+      swaps: mockSwaps,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -42,7 +76,7 @@ router.get('/swap/:id', async (req, res) => {
 
     res.render('swap', {
       ...swap,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -62,7 +96,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
     res.render('profile', {
       ...user,
-      logged_in: true
+      logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);
