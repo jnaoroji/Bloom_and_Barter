@@ -3,11 +3,11 @@ const Swap = require('./Swap');
 
 User.hasMany(Swap, {
   foreignKey: 'user_id',
-  onDelete: 'CASCADE'
+  onDelete: 'CASCADE',
 });
 
-Project.belongsTo(User, {
-  foreignKey: 'user_id'
+Swap.belongsTo(User, {
+  foreignKey: 'user_id',
 });
 
 module.exports = { User, Swap };
