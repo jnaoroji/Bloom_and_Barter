@@ -2,7 +2,7 @@
   {
     "title": "Strawberry Seedlings",
     "description": "Many stawberry seedlings to swap, will swap for other berries or fruit",
-    "status": "Swap"
+    "type": "Swap"
     "date_created": '2023-06-23T15:05:00.234Z',
     "user": {
       "name": 'Jenny',
@@ -11,7 +11,7 @@
   {
     "title": "Seed Potatoes",
     "description": "Looking for seed potatoes for my garden",
-    "status": "Wanted"
+    "type": "Wanted"
      "date_created": '2023-06-23T15:05:00.234Z',
     "user": {
       "name": 'Jenny',
@@ -20,7 +20,7 @@
   {
     "title": "Sweet potato runners",
     "description": "I have too many sweet potato runners, Located in Brisbane CBD for pickup. First in best dressed!",
-    "status": "Free"
+    "type": "Free"
      "date_created": '2023-06-23T15:05:00.234Z',
     "user": {
       "name": 'Jenny',
