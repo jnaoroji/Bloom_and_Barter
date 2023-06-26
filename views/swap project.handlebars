@@ -23,4 +23,18 @@
     <div class="text-xs font-semibold">{{format_date swap.date_created}}</div>
   </div>
   <p class="mb-3">{{swap.description}}</p>
+  <!-- I have copied the style on Line 20 as I still can't login nor sign up to see the code-->
+  <h4 class="text-4xl font-semibold mb-6">Add a Comment{{swap.comment}}</h4>
+    <div class="card-body">
+      <form id="add-comment">
+        <label for="comment-text">
+            <h5>Add a comment.</h5>
+          </label>
+        <textarea class="form-control" id="comment-text" name="comment-details"></textarea> 
+      </div>
+      <button type="submit" class="btn btn-primary" id="commentBtn" value="{{post.id}}">Post</button>
+       <button type="button"  class="btn btn-primary"id="cancel-button" value="{{post.id}}">Cancel</button>
+    </form>
+    </div>
 </div>
+
