@@ -15,7 +15,7 @@ Swap.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    status: {
+    type: {
       type: DataTypes.ENUM('Wanted', 'Free', 'Swap'),
       allowNull: false,
       defaultValue: 'Swap',
