@@ -1,73 +1,73 @@
-// create new user, login, and logout
-const router = require('express').Router();
-const { User } = require('../../models');
+// // create new user, login, and logout
+// const router = require('express').Router();
+// const { User } = require('../../models');
 
-// CREATE NEW USER
-router.post('/', async (req, res) => {
-  try {
-    const dbUserData = await User.create({
-      username: req.body.username,
-      email: req.body.email,
-      password: req.body.password,
-    });
+// // CREATE NEW USER
+// router.post('/', async (req, res) => {
+//   try {
+//     const dbUserData = await User.create({
+//       username: req.body.username,
+//       email: req.body.email,
+//       password: req.body.password,
+//     });
 
-    // set up sessions
-    req.session.save(() => {
-    req.session.loggedIn = true;
-      res.status(200).json(dbUserData);
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+//     // set up sessions
+//     req.session.save(() => {
+//     req.session.loggedIn = true;
+//       res.status(200).json(dbUserData);
+//     });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
-// LOGIN
-router.post('/login', async (req, res) => {
-  try {
-    const dbUserData = await User.findOne({
-      where: {
-        email: req.body.email,
-      },
-    });
+// // LOGIN
+// router.post('/login', async (req, res) => {
+//   try {
+//     const dbUserData = await User.findOne({
+//       where: {
+//         email: req.body.email,
+//       },
+//     });
 
-    if (!dbUserData) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password. Please try again!' });
-      return;
-    }
+//     if (!dbUserData) {
+//       res
+//         .status(400)
+//         .json({ message: 'Incorrect email or password. Please try again!' });
+//       return;
+//     }
 
-    const validPassword = await dbUserData.checkPassword(req.body.password);
+//     const validPassword = await dbUserData.checkPassword(req.body.password);
 
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password. Please try again!' });
-      return;
-    }
+//     if (!validPassword) {
+//       res
+//         .status(400)
+//         .json({ message: 'Incorrect email or password. Please try again!' });
+//       return;
+//     }
 
-    req.session.save(() => {
-      res
-        .status(200)
-        .json({ user: dbUserData, message: 'You are now logged in!' });
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+//     req.session.save(() => {
+//       res
+//         .status(200)
+//         .json({ user: dbUserData, message: 'You are now logged in!' });
+//     });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
-// LOGOUT
-router.post('/logout', (req, res) => {
-  // When the user logs out, the session is destroyed
-  if (req.session.loggedIn) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
-});
+// // LOGOUT
+// router.post('/logout', (req, res) => {
+//   // When the user logs out, the session is destroyed
+//   if (req.session.loggedIn) {
+//     req.session.destroy(() => {
+//       res.status(204).end();
+//     });
+//   } else {
+//     res.status(404).end();
+//   }
+// });
 
-module.exports = router;
+// module.exports = router;

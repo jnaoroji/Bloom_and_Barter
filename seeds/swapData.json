@@ -5,7 +5,7 @@
     "type": "Swap",
     "date_created": "2023-06-23T15:05:00.234Z",
     "user": {
-      "name": "Jenny"
+      "id": 4
     }
   },
   {
@@ -14,7 +14,7 @@
     "type": "Wanted",
     "date_created": "2023-06-23T15:05:00.234Z",
     "user": {
-      "name": "Jenny"
+      "id": 2
     }
   },
   {
@@ -23,7 +23,17 @@
     "type": "Free",
     "date_created": "2023-06-23T15:05:00.234Z",
     "user": {
-      "name": "Jenny"
+      "id": 4
+    }
+  },
+  {
+    
+    "title": "Monstera Variegata cuttings",
+    "description":"I have 10 cuttings of Monstera Variegata. Happy for swapping offers with other variegated types!",
+    "type": "Swap",
+    "date_created": "2023-01-15T10:05:00.234Z",
+    "user": {
+      "id": 2
     }
   }
 ]
