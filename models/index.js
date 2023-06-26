@@ -3,7 +3,7 @@ const Swap = require('./Swap');
 
 User.hasMany(Swap, {
   foreignKey: 'user_id',
-  onDelete: 'CASCADE'
+  onDelete: 'CASCADE',
 });
 
 Swap.belongsTo(User, {
