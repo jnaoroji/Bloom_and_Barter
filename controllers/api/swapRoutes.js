@@ -1,7 +1,9 @@
+// Creating the route for the comment
 const router = require('express').Router();
 const { Swap } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// Create a post
 router.post('/', withAuth, async (req, res) => {
   try {
     const newSwap = await Swap.create({
@@ -15,6 +17,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+// Delete a  comment
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const swapData = await Swap.destroy({

@@ -1,5 +1,6 @@
 const User = require('./User');
 const Swap = require('./Swap');
+const Comment = require('./Swap');
 
 User.hasMany(Swap, {
   foreignKey: 'user_id',
@@ -10,4 +11,9 @@ Swap.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
-module.exports = { User, Swap };
+Comment.belongsTo(User, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE',
+});
+
+module.exports = { User, Swap, Comment };
