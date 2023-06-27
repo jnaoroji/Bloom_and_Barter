@@ -4,28 +4,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PlantSwap</title>
+  <title>Bloom &amp; Barter</title>
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
   <link
   href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap"
   rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Waiting+for+the+Sunrise&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="text-slate-700 h-full bg-slate-50">
   <div class="flex flex-col justify-space-around h-full display-flex">
-    <header class="display-flex justify-space-between align-center p-2 ">
-      <h1>
-        <a href="/">PlantSwap</a>
-      </h1>
-      <nav>
+    <header class="flex justify-between items-center p-6">
+      <div>
+        <h1>
+          <a href="/" class="text-3xl" style="font-family: 'Waiting for the Sunrise'">Bloom &amp; Barter</a>
+        </h1>
+      </div>
+      <nav class="flex">
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/profile">Swap</a> |
-        <button class="no-button" id="logout">logout</button>
+        <button class="border-none outline-none" id="logout">Log out</button>
         {{else}}
-        <a href="/login">login</a>
+        <a href="/login" class="block p-4 py-2">Log in</a>
+        <a href="/signup" class="block rounded-md bg-emerald-700 p-4 py-2 text-neutral-50">Sign up</a>
         {{/if}}
       </nav>
     </header>
