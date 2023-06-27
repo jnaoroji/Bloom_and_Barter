@@ -36,12 +36,17 @@ Comment.init(
     },
   },
   {
-  sequelize,
-  timestamps: true,
-  freezeTableName: true,
-  underscored: true,
-  modelName: "comment",
+    hooks: {
+      beforeCreate: async (newUserData) => {
+        return newUserData
+      }
+    },
+    sequelize,
+    timestamps: true,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'comment'
   }
-  );
+)
   
   module.exports = Comment;

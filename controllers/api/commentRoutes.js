@@ -2,6 +2,17 @@
 const router = require("express").Router();
 const { Comment } = require("../../models");
 const withAuth = require("../../utils/auth");
+const helpers = require('../../utils/helpers');
+
+// Get all swaps
+router.get('/', async (req, res) => {
+  res.render('all'),
+});
+
+// Get specific swap
+router.get('/swap/:num', async (req, res) =>{
+  return res.render('dish', dishes[req.params.num - 1]);
+})
 
 // Create a new comment
 router.post("/", withAuth, async (req, res) => {
