@@ -17,7 +17,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-// Delete a  comment
+// Delete a post
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const swapData = await Swap.destroy({
