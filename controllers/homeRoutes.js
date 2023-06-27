@@ -3,7 +3,6 @@ const { User, Swap } = require('../models');
 const withAuth = require('../utils/auth');
 
 //gets all exisiting lisitings for homepage
-
 router.get('/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
@@ -43,13 +42,14 @@ router.get('/swap/:id', async (req, res) => {
     const swap = swapData.get({ plain: true });
 
     res.render('swap', {
-      ...swap,
+      swap,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
 //get swap page if logged in
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
