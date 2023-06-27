@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Swap } = require('../models');
 const withAuth = require('../utils/auth');
 
-//gets all exisiting lisitings
+//gets all exisiting lisitings for homepage
 
 router.get('/', async (req, res) => {
   try {
@@ -50,7 +50,7 @@ router.get('/swap/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+//get swap page if logged in
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
   try {
@@ -74,7 +74,7 @@ router.get('/profile', withAuth, async (req, res) => {
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/');
+    res.redirect('/profile');
     return;
   }
 
