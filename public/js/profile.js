@@ -15,7 +15,7 @@ const newFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/swap');
+      document.location.replace('/profile');
     } else {
       alert('Failed to create new post');
     }
@@ -31,7 +31,7 @@ const delButtonHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/swap');
+      document.location.replace('/profile');
     } else {
       alert('Failed to delete project');
     }
