@@ -7,9 +7,14 @@
   {{#each swaps as |swap| }}
   <div class="row mb-4 border-b-2 border-neutral-400 pb-6">
     <div class="col-md-5">
-      <h2>
-        <a class="text-xl font-semibold block mb-2" href="/swap/{{swap.id}}">{{swap.title}}</a>
-      </h2>
+			<div class="flex flex-col items-start sm:flex-row sm:justify-between sm:items-center mb-2">
+				<h2>
+					<a class="text-xl font-semibold block" href="/swap/{{swap.id}}">{{swap.title}}</a>
+				</h2>
+				<div>
+					<a href="/edit-swap/{{swap.id}}" class="block rounded-md p-4 py-2">Edit</a>
+				</div>
+			</div>
       <p class="mb-3">
         {{swap.description}}  
       </p>
