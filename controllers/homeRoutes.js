@@ -27,6 +27,36 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+//gets all exisiting lisitings created by user
+router.get('/your-swaps', withAuth, async (req, res) => {
+  try {
+    // Get all swaps and JOIN with user data
+    const swapData = await Swap.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    // Serialize data so the template can read it
+    const swaps = swapData.map((swap) => swap.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render('your-swaps', {
+      swaps,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 //gets each lisiting by id
 router.get('/swap/:id', async (req, res) => {
   try {
