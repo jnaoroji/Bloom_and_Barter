@@ -1,6 +1,6 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
-
+// form handler function for new listing
   const title = document.querySelector('#project-name').value.trim();
   const description = document.querySelector('#project-desc').value.trim();
 
