@@ -86,6 +86,30 @@ router.get('/create-swap', withAuth, (req, res) => {
   });
 });
 
+// Edit a swap post
+router.get('/edit-swap/:id', withAuth, async (req, res) => {
+  try {
+    const swapData = await Swap.findByPk(req.params.id, {
+      where: { user_id: req.session.user_id },
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const swap = swapData.get({ plain: true });
+
+    res.render('edit-swap', {
+      swap,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {

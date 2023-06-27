@@ -1,0 +1,30 @@
+<div class="md:p-20 p-12 pt-8">
+  <a href="/" class="block text-emerald-700 mb-6">Back to home</a>
+  <h1 class="text-4xl font-semibold mb-6">Edit your plant swap</h1>
+ <div class="mb-3">
+  <div class="mt-4">
+    <form id="edit-swap-form">
+      <label for="swap-title">
+        <span class="block text-lg font-semibold mb-2">Title *</span>
+      </label>
+			<input required class="text-sm p-2 pl-3 rounded-lg w-full border border-gray-300 focus:outline-emerald-600" type="text" id="swap-title" name="title" value="{{swap.title}}" />
+      <label for="swap-type">
+        <span class="block text-lg font-semibold mb-2 mt-4">Choose a type *</span>
+      </label>
+			<select required class="text-sm p-2 pl-3 rounded-lg w-full border border-gray-300 focus:outline-emerald-600" id="swap-type" name="type" value="{{swap.type}}">
+				<option value="Swap">Swap</option>
+				<option value="Wanted">Wanted</option>
+				<option value="Free">Free</option>
+			</select>
+			<label for="swap-description">
+        <span class="block text-lg font-semibold mb-2 mt-4">Add a description *</span>
+      </label>
+      <textarea required class="text-sm p-2 pl-3 rounded-lg w-full border border-gray-300 focus:outline-emerald-600 mb-3" id="swap-description" name="description">{{swap.description}}</textarea>
+      <div class="flex flex-col sm:flex-row">
+        <button type="submit" class="rounded-md bg-emerald-700 p-4 py-2 text-neutral-50" id="post-button">Post</button>
+        <a href="/" class="text-center block rounded-md p-4 py-2" id="cancel-button">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+<script src="/js/edit-swap.js"></script>
