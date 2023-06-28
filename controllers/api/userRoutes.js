@@ -1,5 +1,14 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+
+
+router.get("/login", (req, res) => {
+  res.send("Failed attempt");
+});
+
+router.get("/", (req, res) => {
+  res.send("Success");
+});
 //creates a new user
 router.post('/', async (req, res) => {
   try {
