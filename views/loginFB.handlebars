@@ -1,0 +1,25 @@
+<div class="flex h-full p-6">
+  <div class="w-full md:w-1/2 p-12">
+    <h2 class="text-xl mb-6 font-bold">Log in</h2>
+
+    <form class="w-full" id="login-form">
+      <div class="mb-3">
+        <label class="block p-0 font-semibold text-sm mb-1" for="email-login">Email</label>
+        <input class="text-sm p-2 pl-3 rounded-lg w-full border border-gray-300 focus:outline-emerald-600" type="text" id="email-login" placeholder="example@gmail.com" />
+      </div>
+      <div class="mb-3">
+        <label class="block p-0 font-semibold text-sm mb-1" for="password-login">Password</label>
+        <input class="text-sm p-2 pl-3 rounded-lg w-full border border-gray-300 focus:outline-emerald-600" type="password" id="password-login" placeholder="Password" />
+      </div>
+      <div class="mt-6">
+        <button class="bg-emerald-700 text-neutral-50 font-semibold w-full p-2 pl-6 pr-6 rounded-lg shadow-lg" type="submit">Login</button>
+      </div>
+    </form>
+    <a href="/login" class="block text-emerald-700 mt-3">Use Bloom and Barter to Sign in.</a>
+    <a href="/signup" class="block text-emerald-700 mt-3">Don't have an account? Sign up for free.</a>
+  </div>
+  <div class="hidden md:block w-1/2 bg-[url('/images/login-splash.jpg')] bg-cover bg-no-repeat rounded-tl-3xl rounded-br-3xl">
+  </div>
+</div>
+
+<script src="./js/login.js"></script>
