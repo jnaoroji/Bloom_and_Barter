@@ -16,13 +16,10 @@ User.hasMany(Comment, {
   onDelete: 'CASCADE',
 });
 
-Swap.hasMany(Comment, {
+Comment.belongsTo(User, {
+  foreignKey: 'user_id',
   onDelete: 'CASCADE',
-  foreignKey: 'swap_id',
-});
-
-Comment.belongsTo(Swap, {
-  foreignKey: 'swap_id',
 });
 
 module.exports = { User, Swap, Comment };
+

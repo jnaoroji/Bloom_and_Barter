@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
 class Comment extends Model {}
 
@@ -22,31 +22,33 @@ Comment.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: "user",
-        key: "id",
+        model: 'User',
+        key: 'id',
       },
     },
-    post_id: {
+    // added this to add date as well same as the swap
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
+    swap_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: "post",
-        key: "id",
+        model: 'Swap',
+        key: 'id',
       },
     },
   },
   {
-    hooks: {
-      beforeCreate: async (newUserData) => {
-        return newUserData
-      }
-    },
-    sequelize,
-    timestamps: true,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'comment'
+  sequelize,
+  timestamps: true,
+  freezeTableName: true,
+  underscored: true,
+  modelName: "comment",
   }
-)
+  );
   
   module.exports = Comment;
+
