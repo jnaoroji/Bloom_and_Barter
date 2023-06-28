@@ -32,9 +32,10 @@
       <textarea class="text-sm p-2 pl-3 rounded-lg w-full border border-gray-300 focus:outline-emerald-600 mb-3" id="comment-text" name="comment-details"></textarea>
       <div class="flex flex-col sm:flex-row">
         <button type="submit" class="rounded-md bg-emerald-700 p-4 py-2 text-neutral-50" id="commentBtn" value="{{post.id}}">Post</button>
-        <button type="button" class="rounded-md p-4 py-2" id="cancel-button" value="{{post.id}}">Cancel</button>
+        <a href="/" class="text-center block rounded-md p-4 py-2" id="cancel-button">Cancel</button>
+        <a href="/your-swaps" class="text-center block rounded-md p-4 py-2" id="delete-button">DELETE</button>
       </div>
     </form>
   </div>
 </div>
-
+<script src="/js/delete-swap.js"></script>
