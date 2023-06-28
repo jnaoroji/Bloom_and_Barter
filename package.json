@@ -22,6 +22,8 @@
     "express-session": "^1.17.1",
     "mysql2": "^2.2.5",
     "npm": "^9.7.2",
+    "passport": "^0.6.0",
+    "passport-facebook": "^3.0.0",
     "run": "^1.4.0",
     "seed": "^0.4.4",
     "sequelize": "^6.3.5"

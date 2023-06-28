@@ -20,9 +20,9 @@ const seedDatabase = async () => {
     });
   }
 
-  for (const comment of commentData) {
-    await Comment.create(comment);
-  }
+  // for (const comment of commentData) {
+  //   await Comment.create(comment);
+  // }
 
   process.exit(0);
 };
