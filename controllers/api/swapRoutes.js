@@ -52,15 +52,41 @@ router.delete('/:id', withAuth, async (req, res) => {
       },
     });
 
-    if (!swapData) {
+    if (swapData === 0) {
       res.status(404).json({ message: 'No Plant found with this id!' });
       return;
     }
+    // if (!swapData) {
+    //   res.status(404).json({ message: 'No Plant found with this id!' });
+    //   return;
+    // }
 
-    res.status(200).json(swapData);
+  //   res.status(200).json(swapData);
+  // } catch (err) {
+  //   res.status(500).json(err);
+  // }
+  res.status(200).json({ message: 'Post deleted successfully.' });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+router.delete('/:id', withAuth, async (req, res) => {
+  try {
+    const swapData = await Swap.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    });
 
+    if (swapData === 0) {
+      res.status(404).json({ message: 'No Swap found with this id!' });
+      return;
+    }
+
+    res.status(200).json({ message: 'Swap deleted successfully.' });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 module.exports = router;
