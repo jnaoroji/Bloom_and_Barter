@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { User, Swap } = require('../models');
 const withAuth = require('../utils/auth');
+const passport = require ('passport');
+
 
 //gets all exisiting lisitings for homepage
 router.get('/', async (req, res) => {
@@ -129,5 +131,15 @@ router.get('/signup', (req, res) => {
 
   res.render('signup');
 });
+
+//Login Via Facebook
+router.get("/auth/facebook", passport.authenticate("facebook"));
+router.get(
+  "/auth/facebook/callback",
+  passport.authenticate("facebook", {
+    successRedirect: "/",
+    failureRedirect: "/fail"
+  })
+);
 
 module.exports = router;

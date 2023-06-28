@@ -1,6 +1,12 @@
 // Install dependencies and includes the set up sessions/cookie
 const path = require('path');
 const express = require('express');
+//import passport-facebook, facebook strategy and user models
+const passport = require ('passport');
+const FacebookStrategy = require ('passport-facebook').Strategy;
+const User = require('./models/User')
+
+
 // Import express-session
 const session = require('express-session');
 const exphbs = require('express-handlebars');
@@ -32,6 +38,20 @@ const sess = {
 };
 
 app.use(session(sess));
+
+// Set up passport-facebook 
+
+passport.use(new FacebookStrategy({
+  clientID: process.env.FACEBOOK_CLIENT_ID,
+  clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+  callbackURL: process.env.FACEBOOK_CALLBACK_URL,
+},
+function(accessToken, refreshToken, profile, cb) {
+  User.findOrCreate({ facebookId: profile.id }, function (err, user) {
+    return cb(err, user);
+  });
+}
+));
 
 // Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({ helpers });
