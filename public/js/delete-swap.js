@@ -1,24 +1,21 @@
-const postId = "{{swap.id}}"; 
+const deleteButton = document.getElementById("delete-button");
 
-const delButtonHandler = async (event) => {
-    if (event.target.hasAttribute('data-id')) {
-      const swapId = event.target.getAttribute('data-id');
-  
-      const response = await fetch(`/api/swaps/${swapId}`, {
-        method: 'DELETE',
-      });
-  
-      if (response.ok) {
-        document.location.replace('/your-swaps');
-      } else {
-        alert('Failed to delete post');
-      }
+deleteButton.addEventListener("click", async function(event) {
+  event.preventDefault();
+
+  const swapId = document.location.pathname.split('/')[2];
+
+  try {
+    const response = await fetch(`/api/swaps/${swapId}`, {
+      method: 'DELETE',
+    });
+
+    if (response.ok) {
+      document.location.replace('/your-swaps');
+    } else {
+      alert('Failed to delete post');
     }
-  };
-  
-  
-  document
-    .querySelector(`${swapId}`)
-    .addEventListener('click', delButtonHandler);
-  
-  
+  } catch (error) {
+    console.error('Error occurred while deleting the post', error);
+  }
+});
