@@ -43,6 +43,7 @@ router.put('/:id', withAuth, async (req, res) => {
 });
 
 // Delete a post
+
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const swapData = await Swap.destroy({
@@ -52,12 +53,12 @@ router.delete('/:id', withAuth, async (req, res) => {
       },
     });
 
-    if (!swapData) {
-      res.status(404).json({ message: 'No Plant found with this id!' });
+    if (swapData === 0) {
+      res.status(404).json({ message: 'No Post found with this id!' });
       return;
     }
 
-    res.status(200).json(swapData);
+    res.status(200).json({ message: 'Post deleted successfully.' });
   } catch (err) {
     res.status(500).json(err);
   }
