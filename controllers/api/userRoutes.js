@@ -2,13 +2,6 @@ const router = require('express').Router();
 const { User } = require('../../models');
 
 
-router.get("/login", (req, res) => {
-  res.send("Failed attempt");
-});
-
-router.get("/", (req, res) => {
-  res.send("Success");
-});
 //creates a new user
 router.post('/', async (req, res) => {
   try {
@@ -24,6 +17,7 @@ router.post('/', async (req, res) => {
     res.status(400).json(err);
   }
 });
+
 //Login
 router.post('/login', async (req, res) => {
   try {
@@ -56,6 +50,7 @@ router.post('/login', async (req, res) => {
     res.status(400).json(err);
   }
 });
+
 //Logout
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {

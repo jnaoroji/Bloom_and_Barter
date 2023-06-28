@@ -26,6 +26,12 @@ Comment.init(
         key: 'id',
       },
     },
+    // added this to add date as well same as the swap
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
     swap_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -36,12 +42,13 @@ Comment.init(
     },
   },
   {
-    sequelize,
-    timestamps: true,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'comment',
+  sequelize,
+  timestamps: true,
+  freezeTableName: true,
+  underscored: true,
+  modelName: "comment",
   }
-);
+  );
+  
+  module.exports = Comment;
 
-module.exports = Comment;

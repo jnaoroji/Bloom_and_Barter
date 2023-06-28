@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth');
 const passport = require ('passport');
 
 
-//gets all exisiting lisitings for homepage
+//gets all existing listings for homepage
 router.get('/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-//gets all exisiting lisitings created by user
+//gets all existing listings created by user
 router.get('/your-swaps', withAuth, async (req, res) => {
   try {
     // Get all swaps and JOIN with user data
@@ -59,7 +59,7 @@ router.get('/your-swaps', withAuth, async (req, res) => {
   }
 });
 
-//gets each lisiting by id
+//gets each listing by id
 router.get('/swap/:id', async (req, res) => {
   try {
     const swapData = await Swap.findByPk(req.params.id, {
