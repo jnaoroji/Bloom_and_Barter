@@ -23,7 +23,8 @@
     <div class="text-xs font-semibold">{{format_date swap.date_created}}</div>
   </div>
  <div class="mb-3">
-  <p class="mb-3">{{swap.description}}</p>
+  <p class="mb-4">{{swap.description}}</p>
+  <button class="rounded-md border border-emerald-700 p-4 py-2 text-emerald-700 mb-4" id="delete-button">Delete</button>
   <div class="mt-4">
     <form id="add-comment">
       <label for="comment-text">
@@ -33,7 +34,6 @@
       <div class="flex flex-col sm:flex-row">
         <button type="submit" class="rounded-md bg-emerald-700 p-4 py-2 text-neutral-50" id="commentBtn" value="{{post.id}}">Post</button>
         <a href="/" class="text-center block rounded-md p-4 py-2" id="cancel-button">Cancel</button>
-        <a href="/your-swaps" class="text-center block rounded-md p-4 py-2" id="delete-button">DELETE</button>
       </div>
     </form>
   </div>
