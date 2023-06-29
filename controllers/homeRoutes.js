@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User, Swap } = require('../models');
 const withAuth = require('../utils/auth');
 const passport = require ('passport');
+const FacebookStrategy = require ('passport-facebook').Strategy;
 
 
 //gets all existing listings for homepage
@@ -133,13 +134,16 @@ router.get('/signup', (req, res) => {
 });
 
 //Login Via Facebook
-router.get("/auth/facebook", passport.authenticate("facebook"));
-router.get(
-  "/auth/facebook/callback",
-  passport.authenticate("facebook", {
-    successRedirect: "/",
-    failureRedirect: "/fail"
-  })
-);
+
+router.get('/auth/facebook',
+  passport.authenticate('facebook'));
+ 
+router.get('/auth/facebook/callback',
+  passport.authenticate('facebook', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  });
+
 
 module.exports = router;

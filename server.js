@@ -7,6 +7,7 @@ const FacebookStrategy = require ('passport-facebook').Strategy;
 const User = require('./models/User')
 
 
+
 // Import express-session
 const session = require('express-session');
 const exphbs = require('express-handlebars');
@@ -47,7 +48,7 @@ passport.use(new FacebookStrategy({
   callbackURL: process.env.FACEBOOK_CALLBACK_URL,
 },
 function(accessToken, refreshToken, profile, cb) {
-  User.findOrCreate({ facebookId: profile.id }, function (err, user) {
+  User.findOrCreate({where: { facebookId: profile.id }}, function (err, user) {
     return cb(err, user);
   });
 }
