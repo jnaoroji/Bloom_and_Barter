@@ -22,4 +22,3 @@ Comment.belongsTo(User, {
 });
 
 module.exports = { User, Swap, Comment };
-

@@ -6,8 +6,6 @@ const passport = require ('passport');
 const FacebookStrategy = require ('passport-facebook').Strategy;
 const User = require('./models/User')
 
-
-
 // Import express-session
 const session = require('express-session');
 const exphbs = require('express-handlebars');
@@ -20,6 +18,31 @@ const helpers = require('./utils/helpers');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+passport.use(
+  new FacebookStrategy(
+    {
+      clientID: process.env.FACEBOOK_CLIENT_ID
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+      callbackURL: process.env.FACEBOOK_CALLBACK_URL,
+      profileFields: ['id', 'displayName', 'email'],
+    },
+    async (accessToken, refreshToken, profile, done) => {
+      try {
+        const [user, created] = await User.findOrCreate({
+          where: { facebookId: profile.id },
+          defaults: {
+            username: profile.displayName,
+            email: profile.emails[0].value,
+          },
+        });
+
+        return done(null, user);
+      } catch (error) {
+        return done(error);
+      }
+    }
+  )
+);
 
 // Set up sessions
 const sess = {
@@ -39,20 +62,23 @@ const sess = {
 };
 
 app.use(session(sess));
+app.use(passport.initialize()); //added this
+app.use(passport.session()); //added this
 
 // Set up passport-facebook 
 
-passport.use(new FacebookStrategy({
-  clientID: process.env.FACEBOOK_CLIENT_ID,
-  clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-  callbackURL: process.env.FACEBOOK_CALLBACK_URL,
-},
-function(accessToken, refreshToken, profile, cb) {
-  User.findOrCreate({where: { facebookId: profile.id }}, function (err, user) {
-    return cb(err, user);
-  });
-}
-));
+// passport.use(new FacebookStrategy({
+//   clientID: process.env.FACEBOOK_CLIENT_ID,
+//   clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+//   callbackURL: process.env.FACEBOOK_CALLBACK_URL,
+//   profileFields: ['id', 'displayName', 'email'], //added this
+// },
+// function(accessToken, refreshToken, profile, cb) {
+//   User.findOrCreate({ facebookId: profile.id }, function (err, user) {
+//     return cb(err, user);
+//   });
+// }
+// ));
 
 // Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({ helpers });
@@ -73,4 +99,3 @@ sequelize.sync({ force: false }).then(() => {
     )
   );
 });
-
