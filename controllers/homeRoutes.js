@@ -149,7 +149,10 @@ router.get('/auth/facebook/callback',
       req.session.user_id = userData.id;
       req.session.logged_in = true;
       res.redirect('/');
-     
+      // if (req.session.logged_in) {
+      //   res.redirect('/');
+      //   return;
+      // }
     });
 
   });

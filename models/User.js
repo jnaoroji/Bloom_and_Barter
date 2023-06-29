@@ -33,26 +33,6 @@ User.init(
         },
       },
     },
-    // email: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,//true
-    //   unique: true,
-    //   validate: {
-    //     isEmail: true,
-    //   },
-    // },
-    // email: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    //   unique: {
-    //     args: true,
-    //     msg: 'Email address already in use!',
-    //     fields: [sequelize.literal('IFNULL(`FacebookId`, `email`)')],
-    //   },
-    //   validate: {
-    //     isEmail: true,
-    //   },
-    // },
     password: {
       type: DataTypes.STRING,
       allowNull: false,

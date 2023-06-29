@@ -18,7 +18,7 @@ const helpers = require('./utils/helpers');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const defaultEmail = 'default@email.com';
+
 const defaultPassword = 'default12345';
 
 passport.use(
@@ -75,23 +75,6 @@ const sess = {
 };
 
 app.use(session(sess));
-// app.use(passport.initialize()); //added this
-// app.use(passport.session()); //added this
-
-// Set up passport-facebook
-
-// passport.use(new FacebookStrategy({
-//   clientID: process.env.FACEBOOK_CLIENT_ID,
-//   clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-//   callbackURL: process.env.FACEBOOK_CALLBACK_URL,
-//   profileFields: ['id', 'displayName', 'email'], //added this
-// },
-// function(accessToken, refreshToken, profile, cb) {
-//   User.findOrCreate({ facebookId: profile.id }, function (err, user) {
-//     return cb(err, user);
-//   });
-// }
-// ));
 
 // Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({ helpers });
