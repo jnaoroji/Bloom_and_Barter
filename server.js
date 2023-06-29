@@ -2,9 +2,9 @@
 const path = require('path');
 const express = require('express');
 //import passport-facebook, facebook strategy and user models
-const passport = require ('passport');
-const FacebookStrategy = require ('passport-facebook').Strategy;
-const User = require('./models/User')
+const passport = require('passport');
+const FacebookStrategy = require('passport-facebook').Strategy;
+const User = require('./models/User');
 
 // Import express-session
 const session = require('express-session');
@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 3001;
 passport.use(
   new FacebookStrategy(
     {
-      clientID: process.env.FACEBOOK_CLIENT_ID
+      clientID: process.env.FACEBOOK_CLIENT_ID,
       clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
       callbackURL: process.env.FACEBOOK_CALLBACK_URL,
       profileFields: ['id', 'displayName', 'email'],
@@ -65,7 +65,7 @@ app.use(session(sess));
 app.use(passport.initialize()); //added this
 app.use(passport.session()); //added this
 
-// Set up passport-facebook 
+// Set up passport-facebook
 
 // passport.use(new FacebookStrategy({
 //   clientID: process.env.FACEBOOK_CLIENT_ID,
