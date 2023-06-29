@@ -1,17 +1,22 @@
 [
   {
     "name": "Natasa",
-    "email": "natasa@gmail.com",
+    "username": "natasa@gmail.com",
     "password": "Natasa123"
   },
   {
-    "name": "Jenny",
-    "email": "jenny@email.com",
+    "name": "Jenny Naoroji",
+    "username": "jenny@email.com",
     "password": "password12345"
   },
   {
     "name": "Kristine",
-    "email": "kristine@email.com",
+    "username": "kristine@email.com",
     "password": "Kristine@123"
+  },
+  {
+    "name": "Default",
+    "username": "default@email.com",
+    "password": "default12345"
   }
 ]
