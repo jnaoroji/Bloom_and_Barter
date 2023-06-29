@@ -24,21 +24,25 @@
   </div>
  <div class="mb-3">
   <p class="mb-4">{{swap.description}}</p>
-  <div id="commentBox">
-  </div>
   <button class="rounded-md border border-emerald-700 p-4 py-2 text-emerald-700 mb-4" id="delete-button">Delete</button>
-  <div class="mt-4"> 
-    <form id="add-comment">
-      <label for="comment-text">
-        <span class="block text-lg font-semibold mb-2">Add a comment</span>
-      </label>
-      <textarea class="text-sm p-2 pl-3 rounded-lg w-full border border-gray-300 focus:outline-emerald-600 mb-3" id="comment-text" name="comment-details"></textarea>
-      <div class="flex flex-col sm:flex-row">
-        <button type="submit" class="rounded-md bg-emerald-700 p-4 py-2 text-neutral-50" id="commentBtn" value="{{post.id}}">Post</button>
-        <a href="/" class="text-center block rounded-md p-4 py-2" id="cancel-button">Cancel</button>
-      </div>
-    </form>
-  </div>
 </div>
+<!--Comments-->
+<div class="mt-4"> 
+  <form id="add-comment" data-username="{{swap.user.name}}" data-date="{{format_date swap.date_created}}">
+    <label for="comment-text">
+      <span class="block text-lg font-semibold mb-2">Add a comment</span>
+    </label>
+    <textarea class="text-sm p-2 pl-3 rounded-lg w-full border border-gray-300 focus:outline-emerald-600 mb-3" id="comment-text" name="comment-details"></textarea>
+    <div class="flex flex-col sm:flex-row">
+      <button type="submit" class="rounded-md bg-emerald-700 p-4 py-2 text-neutral-50" id="commentBtn" value="{{post.id}}">Post</button>
+      <a href="/" class="text-center block rounded-md p-4 py-2" id="cancel-button">Cancel</a>
+    </div>
+  </form>
+</div>
+<div class="mt-4 text-left">
+<h3 class="text-lg font-semibold">All Comments</h3>
+ <div id="comment-box"></div>
+</div> 
 <script src="/js/delete-swap.js"></script>
 <script src="/js/comment.js"></script>
+

@@ -1,11 +1,12 @@
 // Get the comment form and comment box elements
 const commentForm = document.getElementById("add-comment");
-const commentBox = document.getElementById("commentBox");
+const commentBox = document.getElementById("comment-box");
 
 // Load comments from localStorage on page load
-window.addEventListener("DOMContentLoaded", function() {
-  loadComments();
-});
+
+ window.addEventListener("DOMContentLoaded", function() {
+   loadComments();
+ });
 
 // Add event listener to the comment form
 commentForm.addEventListener("submit", function(event) {
@@ -15,8 +16,8 @@ commentForm.addEventListener("submit", function(event) {
   const commentText = document.getElementById("comment-text").value;
 
   // Get the current user name and date
-  const userName = "{{swap.user.name}}";
-  const currentDate = "{{format_date swap.date_created}}";
+  const userName = commentForm.dataset.username; // get the user that is signed in
+  const currentDate = commentForm.dataset.date; //get today's date and format it
 
   // Create a new comment object
   const comment = {
@@ -57,11 +58,11 @@ function renderComment(comment) {
   newComment.classList.add("comment");
 
   // Create elements for user name, date, and comment text
-  const userNameElement = document.createElement("div");
+  const userNameElement = document.createElement("span");
   userNameElement.classList.add("comment-username");
-  userNameElement.textContent = comment.userName;
+  userNameElement.textContent = comment.userName + ' - ';
 
-  const dateElement = document.createElement("div");
+  const dateElement = document.createElement("span");
   dateElement.classList.add("comment-date");
   dateElement.textContent = comment.date;
 
@@ -77,116 +78,3 @@ function renderComment(comment) {
   // Append the new comment to the comment box
   commentBox.appendChild(newComment);
 }
-
-
-
-
-// // Get the comment form and comment box elements
-// const commentForm = document.getElementById("add-comment");
-// const commentBox = document.getElementById("commentBox");
-
-// // Add event listener to the comment form
-// commentForm.addEventListener("submit", function(event) {
-//   event.preventDefault(); // Prevent form submission
-
-//   // Get the comment text
-//   const commentText = document.getElementById("comment-text").value;
-
-//   // Create a new comment element
-//   const newComment = document.createElement("div");
-//   newComment.classList.add("comment");
-//   newComment.textContent = commentText;
-
-//   // Append the new comment to the comment box
-//   commentBox.appendChild(newComment);
-
-//   // Clear the comment textarea
-//   document.getElementById("comment-text").value = "";
-// });
-
-
-// // const commentInput = getElementById('comment-text');
-// const commentInput = getElementsByName('add-comment');
-// // const commentButton = getElementById('commentBtn');
-// const commentBox = getElementById('commentBox');
-
-// commentButton.addEventListener("click", async function (event) {
-//     event.preventDefault();
-    
-//     const comment = commentInput.value;
-//     console.log(comment);
-//     try {
-//         const response = await fetch(`/api/swaps/${results}`, {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify({ comment })
-//         });
-
-//         if (response.ok) {
-//             const newComment = await response.json();
-//             const commentElement = document.createElement('div');
-//             commentElement.textContent = newComment.comment
-//             commentBox.appendChild(commentElement);
-//             // document.location.replace('/');
-//         } else {
-//             alert('Failed to post comment');
-//         }
-//     } catch (error) {
-//         console.error('Error occurred while commenting the post', error);
-//     }
-// });
-
-
-
-// function addComment() {
-//     const commentButton = document.getElementById("#commentBtn");
-
-// commentButton.addEventListener("click", async function(event) {
-//   event.preventDefault();
-
-//   const swapId = document.location.pathname.split('/')[2];
-
-//   try {
-//     const response = await fetch(`/api/swaps/${swapId}`, {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify({ comment })
-//     });
-
-//     if (response.ok) {
-//       document.location.replace('/'); 
-//     } else {
-//       alert('Failed to post comment');
-//     }
-//   } catch (error) {
-//     console.error('Error occurred while commenting the post', error);
-//   }
-// })
-// };
-
-// const cancelButton = document.getElementById("#cancel-button");
-
-// cancelButton.addEventListener("click", async function(event) {
-//   event.preventDefault();
-
-//   const swapId = document.location.pathname.split('/')[2];
-
-//   try {
-//     const response = await fetch(`/api/swaps/${swapId}`, {
-//       method: 'DELETE',
-//     });
-
-//     if (response.ok) {
-//       document.location.replace('/your-swaps');
-//     } else {
-//       alert('Failed to cancel post');
-//     }
-//   } catch (error) {
-//     console.error('Error occurred while cancelling the post', error);
-//   }
-// });
-
