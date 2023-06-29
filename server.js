@@ -6,7 +6,6 @@ const passport = require ('passport');
 const FacebookStrategy = require ('passport-facebook').Strategy;
 const User = require('./models/User')
 
-
 // Import express-session
 const session = require('express-session');
 const exphbs = require('express-handlebars');
