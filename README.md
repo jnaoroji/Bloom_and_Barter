@@ -1,12 +1,12 @@
-# ---TITLE OF THE GROUP PROJECT HERE---
+# Bloom & Barter: Plant Swap Concept
 ## 15th Challenge: Project 2 - Interactive Full-Stack Application
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) 
 
 ## Description
-- This is an online community site for plant lovers. The users connect with other plant enthusiasts, trade plants, and share information. The site have an ads, displaying existing plant listings and users should be able to log in, view detailed listings, leave comments, and create their own listings.
+- This is an online community site for plant lovers. The users can connect with other plant enthusiasts, trade plants, and share information. The site have an ads, displaying existing plant listings and users should be able to log in, view detailed listings, leave comments, and create their own listings.
 
 ## Table of Contents
-- [---TITLE OF THE GROUP PROJECT HERE---](#---title-of-the-group-project-here---)
+- [Bloom \& Barter: Plant Swap Concept](#bloom--barter-plant-swap-concept)
   - [15th Challenge: Project 2 - Interactive Full-Stack Application](#15th-challenge-project-2---interactive-full-stack-application)
   - [Description](#description)
   - [Table of Contents](#table-of-contents)
@@ -69,15 +69,15 @@ THEN I am taken to the homepage and presented with existing blog posts that incl
 
 ## Technologies Used
 * HTML
-* CSS
+* Tailwind CSS
 * Javascript
 * Node.js
 * MySQL
-* Insomnia
 * Dotenv
 * Sequelize
 * Express
-* Seeds
+* Handlebars
+* Passport npm - chosen library that haven't discussed in the class
 
 ## Installation
 - Navigate to this repository.
@@ -101,19 +101,14 @@ THEN I am taken to the homepage and presented with existing blog posts that incl
   ```md
   source schema.sql;
   ```
-
+- To create the tables and its relationships to the application, run this step:
   ```md
   npm run seed
   ```
-
+- Open the server file to run this command from the application root directory
   ```md 
   npm run start
   ```
-  to edittt
-
-
-
-
 
 ## Usage and Screenshots
 - to edit
@@ -137,11 +132,9 @@ THEN I am taken to the homepage and presented with existing blog posts that incl
 - [MySQL2](https://www.npmjs.com/package/mysql2)
 - [Sequelize](https://sequelize.org/)
 - [Dotenv](https://www.npmjs.com/package/dotenv)
-- ----add more here
+- [Passport](https://www.npmjs.com/package/passport)
 
 ## Authors
-- © 2023 [Jenny](https://github.com/jnaoroji), [Kristine](https://github.com/mcramileux), and Natasa (https://github.com/Natasa00)
-
---------
+- © 2023 [Jenny](https://github.com/jnaoroji), [Kristine](https://github.com/mcramileux), and [Natasa](https://github.com/Natasa00)
 
 
