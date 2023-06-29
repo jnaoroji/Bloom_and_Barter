@@ -22,9 +22,8 @@ const PORT = process.env.PORT || 3001;
 passport.use(
   new FacebookStrategy(
     {
-      // clientID: process.env.FACEBOOK_APP_ID,
-      clientID: 'YOUR_FACEBOOK_APP_ID', //added this
-      clientSecret: process.env.FACEBOOK_APP_SECRET,
+      clientID: process.env.FACEBOOK_CLIENT_ID
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
       callbackURL: process.env.FACEBOOK_CALLBACK_URL,
       profileFields: ['id', 'displayName', 'email'],
     },
