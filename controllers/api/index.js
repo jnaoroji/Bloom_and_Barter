@@ -11,16 +11,15 @@ router.get('/auth/facebook', passport.authenticate('facebook'));
 
 // Facebook callback URL
 router.get(
-    '/auth/facebook/callback',
-    passport.authenticate('facebook', {
-        successRedirect: '/dashboard',
-        failureRedirect: '/login',
-    })
+  '/auth/facebook/callback',
+  passport.authenticate('facebook', {
+    successRedirect: '/your-swaps',
+    failureRedirect: '/login',
+  })
 );
 
 router.use('/users', userRoutes);
 router.use('/swaps', swapRoutes);
 router.use('/profile', swapRoutes);
-
 
 module.exports = router;

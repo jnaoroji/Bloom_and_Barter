@@ -14,8 +14,8 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      // If successful, redirect the browser to the profile page
-      document.location.replace('/');
+      // If successful, redirect the browser to the your plants page
+      document.location.replace('/your-swaps');
     } else {
       alert(response.statusText);
     }
