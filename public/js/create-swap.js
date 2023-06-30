@@ -15,5 +15,5 @@ document.getElementById('create-swap-form').onsubmit = async (event) => {
     headers: { 'Content-Type': 'application/json' },
   });
 
-  document.location.replace('/');
+  document.location.replace('/your-swaps');
 };
