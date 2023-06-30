@@ -18,21 +18,26 @@ const helpers = require('./utils/helpers');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+
+const defaultPassword = 'default12345';
+
 passport.use(
   new FacebookStrategy(
     {
       clientID: process.env.FACEBOOK_CLIENT_ID,
       clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
       callbackURL: process.env.FACEBOOK_CALLBACK_URL,
-      profileFields: ['id', 'displayName', 'email'],
+      profileFields: ['id','displayName'],
     },
     async (accessToken, refreshToken, profile, done) => {
+      console.log(profile);
       try {
         const [user, created] = await User.findOrCreate({
-          where: { facebookId: profile.id },
+          where: { FacebookId: profile.id },
           defaults: {
-            username: profile.displayName,
-            email: profile.emails[0].value,
+            name: profile.displayName,
+            username: profile.id,
+            password: defaultPassword,
           },
         });
 
@@ -43,6 +48,14 @@ passport.use(
     }
   )
 );
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
 
 // Set up sessions
 const sess = {
@@ -55,30 +68,13 @@ const sess = {
     sameSite: 'strict',
   },
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   store: new SequelizeStore({
     db: sequelize,
   }),
 };
 
 app.use(session(sess));
-app.use(passport.initialize()); //added this
-app.use(passport.session()); //added this
-
-// Set up passport-facebook
-
-// passport.use(new FacebookStrategy({
-//   clientID: process.env.FACEBOOK_CLIENT_ID,
-//   clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-//   callbackURL: process.env.FACEBOOK_CALLBACK_URL,
-//   profileFields: ['id', 'displayName', 'email'], //added this
-// },
-// function(accessToken, refreshToken, profile, cb) {
-//   User.findOrCreate({ facebookId: profile.id }, function (err, user) {
-//     return cb(err, user);
-//   });
-// }
-// ));
 
 // Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({ helpers });

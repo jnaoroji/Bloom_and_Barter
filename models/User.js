@@ -20,12 +20,17 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    email: {
+    username: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
       validate: {
-        isEmail: true,
+        isEmailOrFacebookId(value) {
+          if (!value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) &&
+              !value.match(/^\d+$/)) {
+            throw new Error('Username must be a valid email or Facebook ID.');
+          }
+        },
       },
     },
     password: {
