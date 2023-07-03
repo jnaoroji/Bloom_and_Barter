@@ -22,10 +22,11 @@ const PORT = process.env.PORT || 3001;
 const defaultPassword = 'default12345';
 
 passport.use(
+ 
   new FacebookStrategy(
     {
-      clientID: process.env.FACEBOOK_CLIENT_ID,
-      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+      clientID:'2318951998306830',
+      clientSecret: '6daeaf186d30eb59f63db37eaa41f70b',
       callbackURL: 'http://localhost:3001/auth/facebook/callback',
       
       profileFields: ['id','displayName'],
