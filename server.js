@@ -22,7 +22,8 @@ const PORT = process.env.PORT || 3001;
 const defaultPassword = 'default12345';
 
 passport.use(
-  new FacebookStrategy(
+  FacebookStrategy = new FacebookStrategy(process.env.JAWSDB_URL)(
+  // new FacebookStrategy(
     {
       clientID: process.env.FACEBOOK_CLIENT_ID,
       clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
