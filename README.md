@@ -115,7 +115,7 @@ THEN I am taken to the homepage and presented with existing blog posts that incl
   
 ## Links
 - Github Repository: - https://github.com/jnaoroji/Bloom_and_Barter
-- Heroku Deployment: - to edit
+- Heroku Deployment: - https://bloom-and-barter-3911749eadd3.herokuapp.com
 
 ## Contributions
 - Contributions to this project won't be accepted as this is the reflection of the author's work hence the following questions and answers. Furthermore, forking or creating a pull request is acceptable.
