@@ -1,9 +1,10 @@
 //creating the route for the user
 const router = require('express').Router();
-const passport = require('passport');
+
 
 const userRoutes = require('./userRoutes');
 const swapRoutes = require('./swapRoutes');
+
 //const apiRoutes = require('./api');
 
 // Login with Facebook
@@ -18,8 +19,9 @@ router.get(
   })
 );
 
+
 router.use('/users', userRoutes);
 router.use('/swaps', swapRoutes);
-router.use('/profile', swapRoutes);
+
 
 module.exports = router;

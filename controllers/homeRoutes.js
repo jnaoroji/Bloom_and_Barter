@@ -143,10 +143,30 @@ router.get('/auth/facebook', passport.authenticate('facebook'));
 router.get(
   '/auth/facebook/callback',
   passport.authenticate('facebook', { failureRedirect: '/login' }),
+
   function (req, res) {
     // Successful authentication, redirect home.
     res.redirect('/');
   }
 );
+
+    
+  async function(req, res) { 
+    // Successful authentication, redirect home.
+    //gets facebook id (acts as username)
+    const userData = req.user.dataValues.FacebookId
+      req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+      res.redirect('/');
+      // if (req.session.logged_in) {
+      //   res.redirect('/');
+      //   return;
+      // }
+    });
+
+  });
+
+
 
 module.exports = router;
