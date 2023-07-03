@@ -55,7 +55,7 @@ WHEN I fill out the form to create a new listing
 THEN the title,type and contents of my post are saved and I am taken back to an updated profile page with my new listing
 WHEN I click on one of my existing posts in the dashboard
 THEN I am able to delete or update my post and taken back to an updated dashboard
-WHEN I click on any existing listing I can enter a comment to connect with the owner of the lisiting
+WHEN I click on any existing listing I can enter a comment to connect with the owner of the listing
 WHEN I enter a comment and click on the submit button while signed in
 THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created
 WHEN I click on the logout option in the navigation
@@ -114,7 +114,7 @@ THEN I am taken to the homepage and presented with existing blog posts that incl
 - to edit
   
 ## Links
-- Github Repository: - to edit
+- Github Repository: - https://github.com/jnaoroji/Bloom_and_Barter
 - Heroku Deployment: - to edit
 
 ## Contributions
@@ -135,6 +135,7 @@ THEN I am taken to the homepage and presented with existing blog posts that incl
 - [Passport](https://www.npmjs.com/package/passport)
 
 ## Authors
-- © 2023 [Jenny](https://github.com/jnaoroji), [Kristine](https://github.com/mcramileux), and [Natasa](https://github.com/Natasa00)
-
-
+- © 2023 
+- [Jenny](https://github.com/jnaoroji) - Backend application
+- [Kristine](https://github.com/mcramileux) - Backend application
+- [Natasa](https://github.com/Natasa00) - Frontend application
