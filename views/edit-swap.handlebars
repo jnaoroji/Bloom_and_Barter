@@ -21,10 +21,12 @@
       </label>
       <textarea required class="text-sm p-2 pl-3 rounded-lg w-full border border-gray-300 focus:outline-emerald-600 mb-3" id="swap-description" name="description">{{swap.description}}</textarea>
       <div class="flex flex-col sm:flex-row">
-        <button type="submit" class="rounded-md bg-emerald-700 p-4 py-2 text-neutral-50" id="post-button">Post</button>
+        <button type="submit" class="rounded-md bg-emerald-700 p-4 py-2 text-neutral-50 mr-2" id="post-button">Post</button>
+        <button type="submit" class="rounded-md bg-emerald-700 p-4 py-2 text-neutral-50" id="delete-button" >Delete</button>
         <a href="/your-swaps" class="text-center block rounded-md p-4 py-2" id="cancel-button">Cancel</button>
       </div>
     </form>
   </div>
 </div>
 <script src="/js/edit-swap.js"></script>
+<script src="/js/delete-swap.js"></script>
