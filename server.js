@@ -21,42 +21,42 @@ const PORT = process.env.PORT || 3001;
 
 const defaultPassword = 'default12345';
 
-// passport.use(
-//   new FacebookStrategy(
-//     {
-//       clientID: process.env.FACEBOOK_CLIENT_ID,
-//       clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-//       callbackURL: process.env.FACEBOOK_CALLBACK_URL,
+passport.use(
+  new FacebookStrategy(
+    {
+      clientID: process.env.FACEBOOK_CLIENT_ID,
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+      callbackURL: process.env.FACEBOOK_CALLBACK_URL,
       
-//       profileFields: ['id','displayName'],
-//     },
-//     async (accessToken, refreshToken, profile, done) => {
-//       console.log(profile);
-//       try {
-//         const [user, created] = await User.findOrCreate({
-//           where: { FacebookId: profile.id },
-//           defaults: {
-//             name: profile.displayName,
-//             username: profile.id,
-//             password: defaultPassword,
-//           },
-//         });
+      profileFields: ['id','displayName'],
+    },
+    async (accessToken, refreshToken, profile, done) => {
+      console.log(profile);
+      try {
+        const [user, created] = await User.findOrCreate({
+          where: { FacebookId: profile.id },
+          defaults: {
+            name: profile.displayName,
+            username: profile.id,
+            password: defaultPassword,
+          },
+        });
 
-//         return done(null, user);
-//       } catch (error) {
-//         return done(error);
-//       }
-//     }
-//   )
-// );
+        return done(null, user);
+      } catch (error) {
+        return done(error);
+      }
+    }
+  )
+);
 
-// passport.serializeUser(function(user, done) {
-//   done(null, user);
-// });
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
 
-// passport.deserializeUser(function(user, done) {
-//   done(null, user);
-// });
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
 
 // Set up sessions
 const sess = {
