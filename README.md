@@ -111,8 +111,26 @@ THEN I am taken to the homepage and presented with existing blog posts that incl
   ```
 
 ## Usage and Screenshots
-- to edit
-  
+- Homepage - all our swap plant concept ads are posted 
+    <img width="1321" alt="homepage" src="https://github.com/jnaoroji/Bloom_and_Barter/assets/122607160/7eb03ccf-427b-459e-8545-2e46f9e36d1e">
+
+- Login - users can login, signup or login using their Facebook
+    <img width="1666" alt="login" src="https://github.com/jnaoroji/Bloom_and_Barter/assets/122607160/c1fd1b3c-3863-475d-ac16-862e6d764366">
+
+- Your Plants - once you are a member, you have your own page to see your posts.
+    <img width="1397" alt="your-plants" src="https://github.com/jnaoroji/Bloom_and_Barter/assets/122607160/7e2afd6a-6555-4d27-ac20-a87ec6fdaf00">
+
+- Added Swap - as you can see it is presented what the user added. The user can edit the ad as well.
+    <img width="1397" alt="create-swap" src="https://github.com/jnaoroji/Bloom_and_Barter/assets/122607160/0f312672-1401-494d-88ef-ee484d2908f8">
+
+- Created Swap - it is now posted on the user's page the created swap to her page
+   <img width="1464" alt="added-swap" src="https://github.com/jnaoroji/Bloom_and_Barter/assets/122607160/aac0ccaa-4d97-4b98-a535-12c09db54a3a">
+
+- Comment Section - users can interact the swap concept by adding their comments
+    <img width="1464" alt="comment-section" src="https://github.com/jnaoroji/Bloom_and_Barter/assets/122607160/2842d2fe-067c-4ab9-9448-5c17f6cee734">
+
+
+
 ## Links
 - Github Repository: - https://github.com/jnaoroji/Bloom_and_Barter
 - Heroku Deployment: - https://bloom-and-barter-3911749eadd3.herokuapp.com
