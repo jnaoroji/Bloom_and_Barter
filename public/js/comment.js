@@ -16,8 +16,8 @@ commentForm.addEventListener("submit", function(event) {
   const commentText = document.getElementById("comment-text").value;
 
   // Get the current user name and date
-  const userName = commentForm.dataset.username; // get the user that is signed in
-  const currentDate = commentForm.dataset.date; //get today's date and format it
+  const userName = commentForm.dataset.username;
+  const currentDate = commentForm.dataset.date;
 
   // Create a new comment object
   const comment = {
