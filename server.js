@@ -22,12 +22,11 @@ const PORT = process.env.PORT || 3001;
 const defaultPassword = 'default12345';
 
 passport.use(
-  FacebookStrategy = new FacebookStrategy(process.env.JAWSDB_URL)(
-  // new FacebookStrategy(
+  new FacebookStrategy(
     {
       clientID: process.env.FACEBOOK_CLIENT_ID,
       clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-      callbackURL: process.env.FACEBOOK_CALLBACK_URL,
+      callbackURL: 'http://localhost:3001/auth/facebook/callback',
       
       profileFields: ['id','displayName'],
     },
